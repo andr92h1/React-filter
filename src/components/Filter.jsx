@@ -2,12 +2,47 @@
 import React, { useState } from "react";
 import "./filter.css";
 
+
+
+
  export const Filter = () => {
 
-    const [carNumber, setCarNumber] = useState("");
+    const [carNumber, setCarNumber] = useState();
     const [minfuel, setMinFuel] = useState(0);
     const [maxfuel, setMaxFuel] = useState(0);
     const [carType, setCarType] = useState();
+
+    const Cars = [
+      {
+        id: 1,
+        typeOfCar: "greenCar",
+        carNumber: "BE37654",
+        fuel: 40,
+        location: "Landgreven 3",
+      },
+      {
+        id: 2,
+        typeOfCar: "longRange",
+        carNumber: "BE37655",
+        fuel: "60",
+        location: "Aertevej 17",
+      },
+      {
+        id: 3,
+        typeOfCar: "greenCar",
+        carNumber: "BE37657",
+        fuel: "100",
+        location: "Princessegade 1",
+      },
+      {
+        id: 4,
+        typeOfCar: "longRange",
+        carNumber: "BE37658",
+        fuel: "50",
+        location: "Bertsgade 7",
+      },
+    ];
+    
 
     return (
       <div>
@@ -16,7 +51,9 @@ import "./filter.css";
           <input 
            type="text"
            class="fields"
-           onChange={(event) => {setCarNumber(event.target.value);}}/>
+           value={carNumber}
+           onChange= {(event) => setCarNumber(Cars.carNumber)}/>
+           {" "}
         </label>
 
 
@@ -64,9 +101,11 @@ import "./filter.css";
 
         <br></br>
      <div class="description">
-        <button className="submitButton">Submit</button>
+        <button className="submitButton" type="submit">Submit</button>
         </div>
       </div>
     
     )};
+
+
 
